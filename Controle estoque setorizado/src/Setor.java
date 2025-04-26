@@ -11,20 +11,15 @@ public class Setor {
         this.quantidadeAtual = 0;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
     public boolean podeArmazenar(String tipoProduto, int quantidadeDesejada) {
         if (produto == null) {
             return quantidadeDesejada <= limiteCapacidade;
         }
         return produto.getTipo().equals(tipoProduto) && 
-                (quantidadeAtual + quantidadeDesejada <= limiteCapacidade);
-
+               (quantidadeAtual + quantidadeDesejada <= limiteCapacidade);
     }
 
-    public void armazenar (Produto novoProduto, int quantidade) {
+    public void armazenar(Produto novoProduto, int quantidade) {
         if (produto == null) {
             produto = novoProduto;
         }
@@ -32,7 +27,7 @@ public class Setor {
         produto.setQuantidade(quantidadeAtual);
     }
 
-    public void retirar(int quantidade){
+    public void retirar(int quantidade) {
         if (produto != null && quantidadeAtual >= quantidade) {
             quantidadeAtual -= quantidade;
             produto.setQuantidade(quantidadeAtual);
@@ -42,34 +37,32 @@ public class Setor {
         }
     }
 
-    public boolean estaVazio(){
+    public boolean estaVazio() {
         return produto == null;
     }
 
-    public Produto getProduto(){
+    public Produto getProduto() {
         return produto;
     }
 
-    public int getQuantidadeAtual(){
+    public int getQuantidadeAtual() {
         return quantidadeAtual;
     }
 
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
 
-    public int getLimiteCapacidade(){
+    public int getLimiteCapacidade() {
         return limiteCapacidade;
     }
 
     @Override
-    public string toString(){
-        if (produto==null){
-            return nome +" - [Vazio]";
+    public String toString() {
+        if (produto == null) {
+            return nome + " - [Vazio]";
         } else {
             return nome + " - " + produto.getNome() + " (" + quantidadeAtual + "/" + limiteCapacidade + ")";
         }
     }
 }
-        
-    
